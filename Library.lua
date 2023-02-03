@@ -2322,8 +2322,9 @@ function Library:SetWatermarkVisibility(Bool)
 end;
 
 function Library:SetWatermark(Text)
-    local X, Y = Library:GetTextBounds(Text, Enum.Font.Code, 14);
-    Library.Watermark.Size = UDim2.new(0, 262, 0, 24);
+    local Size = Library:GetTextBounds(Text, Enum.Font.Code, 14);
+    Library.Watermark.Size = UDim2.new(0, Size + 8 + 2, 0, 20);
+    Library:SetWatermarkVisibility(true)
 
     Library.WatermarkText.Text = Text;
 end;
